@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>-->
+            <PatternLayout pattern="%d{HH:mm:ss}{GMT+3} - %msg%n"/>
+        </Console>
+
+        <!--<Bat name="LogFile"  fileName="logs/framework_single_current.log">-->
+        <!--<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>-->
+        <!--</Bat>-->
+
+        <!--<RollingFile name="CurrentLog" fileName="logs/framework_current.log"-->
+                     <!--filePattern="logs/previous_logs/framework-%d{dd.MM.yyyy}-%i.log">-->
+            <!--<PatternLayout pattern="%d{HH:mm:ss.SSS}{GMT+3} [%t] %-5level %logger{36} - %msg%n"/>-->
+            <!--<Policies>-->
+                <!--<OnStartupTriggeringPolicy/>r-->
+            <!--</Policies>-->
+        <!--</RollingFile>-->
+
+        <Async name="ASYNC">
+            <!--<AppenderRef ref="CurrentLog"/>-->
+            <AppenderRef ref="Console"/>
+        </Async>
+    </Appenders>
+
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="ASYNC"/>
+        </Root>
+        <!--<Logger name="net.sf.uadetector.internal.data.DataBuilder" level="error">-->
+            <!--<AppenderRef ref="ASYNC" />-->
+        <!--</Logger>-->
+    </Loggers>
+
+</Configuration>
